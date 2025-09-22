@@ -38,6 +38,12 @@ print("########### スケジューラーを起動しました ###########")
 # ★ 関数名をわかりやすく変更
 def send_message_to_group(group_id, message_text):
     """予約された時間にグループへメッセージを送信する関数"""
+     # ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+    # この関数が呼び出されたことを確認するためのログを追加
+    print("####### スケジュールされたタスクが実行されました！ #######")
+    print(f"送信先グループID: {group_id}")
+    print(f"送信メッセージ: {message_text}")
+    # ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
     try:
         message = TextMessage(text=message_text)
         push_request = PushMessageRequest(to=group_id, messages=[message])
