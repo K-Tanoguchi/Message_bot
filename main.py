@@ -53,6 +53,10 @@ def send_message_to_group(group_id, message_text):
         print(f"エラー: グループへのメッセージ送信に失敗しました: {e}")
 
 # --- Webサーバーの処理 ---
+@app.route("/")
+def health_check():
+    """Google Apps Scriptからのアクセスに応答するためのルート"""
+    return "OK"
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
